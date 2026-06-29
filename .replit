@@ -1,0 +1,48 @@
+modules = ["nodejs-20"]
+[agent]
+expertMode = true
+stack = "BEST_EFFORT_FALLBACK"
+
+[nix]
+channel = "stable-25_05"
+
+[userenv]
+
+[userenv.shared]
+NODE_ENV = "development"
+RATE_LIMIT_ENABLED = "true"
+HONEYPOT_FIELD_NAME = "website_confirm"
+CRON_SECRET = "dev-cron-secret-change-in-prod"
+DPO_EMAIL = "privacidade@sosservicos.com.br"
+NEXT_PUBLIC_VAPID_PUBLIC_KEY = ""
+VAPID_PRIVATE_KEY = ""
+VAPID_SUBJECT = "mailto:contato@sosservicos.com.br"
+NEXT_PUBLIC_GA_ID = ""
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
