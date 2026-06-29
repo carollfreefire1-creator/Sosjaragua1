@@ -19,6 +19,10 @@ VAPID_PRIVATE_KEY = ""
 VAPID_SUBJECT = "mailto:contato@sosservicos.com.br"
 NEXT_PUBLIC_GA_ID = ""
 PRISMA_DIRECT_URL_OVERRIDE = "same_as_database_url"
+NEXT_PUBLIC_APP_URL = "https://6adbe7d7-5b0f-4a74-a750-1cee8234c973-00-187zv2zgeg0ge.spock.replit.dev"
+NEXT_PUBLIC_SUPABASE_URL = "https://placeholder.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBsYWNlaG9sZGVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2MDAwMDAwMDAsImV4cCI6MjAwMDAwMDAwMH0.placeholder"
+SUPABASE_SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBsYWNlaG9sZGVyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTYwMDAwMDAwMCwiZXhwIjoyMDAwMDAwMDAwfQ.placeholder"
 
 [workflows]
 runButton = "Project"
@@ -36,13 +40,13 @@ args = "Start application"
 name = "Start application"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "webview"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npm run dev"
 waitForPort = 5000
-
-[workflows.workflow.metadata]
-outputType = "webview"
 
 [[ports]]
 localPort = 5000
